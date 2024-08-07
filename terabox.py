@@ -30,14 +30,14 @@ bot_token = os.environ.get('BOT_TOKEN', '7438164515:AAGZankxbqJLVOfn7fyXHfP_0jQt
 if len(bot_token) == 0:
     logging.error("BOT_TOKEN variable is missing! Exiting now")
     exit(1)
-dump_id = os.environ.get('DUMP_CHAT_ID', '-1002221598125')
+dump_id = os.environ.get('DUMP_CHAT_ID', '-1002223649865')
 if len(dump_id) == 0:
     logging.error("DUMP_CHAT_ID variable is missing! Exiting now")
     exit(1)
 else:
     dump_id = int(dump_id)
 
-fsub_id = os.environ.get('FSUB_ID', '-1002221767070')
+fsub_id = os.environ.get('FSUB_ID', '-1002166149059')
 if len(fsub_id) == 0:
     logging.error("FSUB_ID variable is missing! Exiting now")
     exit(1)
@@ -54,7 +54,7 @@ async def start_command(client, message):
     user_mention = message.from_user.mention
     reply_message = f"ᴡᴇʟᴄᴏᴍᴇ, {user_mention}.\n\n🌟 ɪ ᴀᴍ ᴀ ᴛᴇʀᴀʙᴏx ᴅᴏᴡɴʟᴏᴀᴅᴇʀ ʙᴏᴛ. sᴇɴᴅ ᴍᴇ ᴀɴʏ ᴛᴇʀᴀʙᴏx ʟɪɴᴋ ɪ ᴡɪʟʟ ᴅᴏᴡɴʟᴏᴀᴅ ᴡɪᴛʜɪɴ ғᴇᴡ sᴇᴄᴏɴᴅs ᴀɴᴅ sᴇɴᴅ ɪᴛ ᴛᴏ ʏᴏᴜ ✨."
     join_button = InlineKeyboardButton("ᴊᴏɪɴ ❤️🚀", url="https://t.me/moviesworldupdates")
-    developer_button = InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ ⚡️", url="https://t.me/moviesworldupdates")
+    developer_button = InlineKeyboardButton("ᴅᴇᴠᴇʟᴏᴘᴇʀ ⚡️", url="https://t.me/harshitbotz")
     reply_markup = InlineKeyboardMarkup([[join_button, developer_button]])
     await message.reply_text(reply_message, reply_markup=reply_markup)
 
