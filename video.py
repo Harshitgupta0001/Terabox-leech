@@ -59,7 +59,7 @@ async def download_video(url, reply_msg, user_mention, user_id):
         with open(thumbnail_path, "wb") as thumb_file:
             thumb_file.write(thumbnail_response.content)
 
-        await reply_msg.edit_text("ᴜᴘʟᴏᴀᴅɪɴɢ...")
+        await reply_msg.edit_text("ᴜᴘʟᴏᴀᴅɪɴɢ...💪")
 
         return file_path, thumbnail_path, video_title
     else:
