@@ -25,6 +25,7 @@ def format_progress_bar(filename, percentage, done, total_size, status, eta, spe
             return f"{hours} hr {minutes} min"
     
     return (
+        f"┏PROGRESS IS WORKING 💀\n"
         f"┏ ғɪʟᴇɴᴀᴍᴇ: {filename}\n"
         f"┠ [{bar}] {percentage:.2f}%\n"
         f"┠ ᴘʀᴏᴄᴇssᴇᴅ: {format_size(done)} ᴏғ {format_size(total_size)}\n"
