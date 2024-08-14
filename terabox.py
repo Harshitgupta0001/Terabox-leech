@@ -21,12 +21,12 @@ if len(api_id) == 0:
     logging.error("TELEGRAM_API variable is missing! Exiting now")
     exit(1)
 
-api_hash = os.environ.get('TELEGRAM_HASH', '61876db014de51a4ace6b169608be4f1')
+api_hash = os.environ.get('TELEGRAM_HASH'')
 if len(api_hash) == 0:
     logging.error("TELEGRAM_HASH variable is missing! Exiting now")
     exit(1)
     
-bot_token = os.environ.get('BOT_TOKEN', '7370578623:AAHsq-jr7Wfo6btJFkwbPGaz7Y9uqhztAWo')
+bot_token = os.environ.get('BOT_TOKEN', '7370578623o')
 if len(bot_token) == 0:
     logging.error("BOT_TOKEN variable is missing! Exiting now")
     exit(1)
@@ -70,8 +70,9 @@ async def is_user_member(client, user_id):
         logging.error(f"Error checking membership status for user {user_id}: {e}")
         return False
 
-@app.on_message(filters.text & filters.group)
-async def handle_message(client, message: Message):
+@app.on_message(filters.command("tera") & filters.group)
+async def handle_command(client, message: Message):
+    # Check if the user is a member
     user_id = message.from_user.id
     user_mention = message.from_user.mention
     is_member = await is_user_member(client, user_id)
@@ -82,7 +83,18 @@ async def handle_message(client, message: Message):
         await message.reply_text("ʏᴏᴜ ᴍᴜsᴛ ᴊᴏɪɴ ᴍʏ ᴄʜᴀɴɴᴇʟ ᴛᴏ ᴜsᴇ ᴍᴇ.", reply_markup=reply_markup)
         return
 
-    terabox_link = message.text.strip()
+    terabox_link = None
+
+    if len(message.command) > 1:
+        terabox_link = message.command[1]
+    
+    elif message.reply_to_message and message.reply_to_message.text:
+        terabox_link = message.reply_to_message.text.strip()
+    
+    if not terabox_link:
+        await message.reply_text("ᴘʟᴇᴀsᴇ ᴘʀᴏᴠɪᴅᴇ ᴀ ᴛᴇʀᴀʙᴏx ʟɪɴᴋ ᴛᴏ ᴘʀᴏᴄᴇss.")
+        return
+
     if "terabox" not in terabox_link:
         await message.reply_text("ᴘʟᴇᴀsᴇ sᴇɴᴅ ᴀ ᴠᴀʟɪᴅ ᴛᴇʀᴀʙᴏx ʟɪɴᴋ.")
         return
