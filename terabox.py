@@ -70,7 +70,7 @@ async def is_user_member(client, user_id):
         logging.error(f"Error checking membership status for user {user_id}: {e}")
         return False
 
-@app.on_message(filters.command("tera") & filters.group)
+@app.on_message(filters.command("tera"))
 async def handle_command(client, message: Message):
     # Check if the user is a member
     user_id = message.from_user.id
