@@ -21,7 +21,7 @@ if len(api_id) == 0:
     logging.error("TELEGRAM_API variable is missing! Exiting now")
     exit(1)
 
-api_hash = os.environ.get('TELEGRAM_HASH'')
+api_hash = os.environ.get('TELEGRAM_HASH', '61876db014de51a4ace6b169608be4f1')
 if len(api_hash) == 0:
     logging.error("TELEGRAM_HASH variable is missing! Exiting now")
     exit(1)
