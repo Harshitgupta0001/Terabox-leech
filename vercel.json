@@ -1,0 +1,10 @@
+// vercel.json (configuration)
+{
+  "routes": [
+    {
+      "src": "/poster",
+      "methods": ["GET"],
+      "dest": "/api/poster.js"
+    }
+  ]
+}
